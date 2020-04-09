@@ -1,0 +1,62 @@
+* {
+	margin: 0px;
+	padding: 0px;
+}
+
+a {
+	text-decoration: none
+}
+
+img {
+	border: none;
+	vertical-align: bottom;
+}
+
+li {
+	list-style: none;
+}
+
+/*整体结构大小*/
+.zhuti {
+	width: 800px;
+	height: auto;
+	border: 5px solid blanchedalmond;
+}
+
+/*头部*/
+.merry {
+	margin-top: 60px;
+}
+/*头部字体大小*/
+.functionword {
+	font-size: 20px;
+	color: black;
+}
+
+.center-div{
+	width: auto;
+	height: 10px;
+	background-color: gainsboro ;
+}
+
+/*新闻*/
+#new {
+	margin-top: 25px;
+}
+/*新闻图片大小*/
+#imgs {
+	width: 170px;
+	height: 120px;
+}
+/*新闻开头字体大小*/
+.new-top-title {
+	margin-left: 50px;
+}
+/*新闻时间与阅读数量字体大小*/
+.news-word{
+	margin-top: 20px ;
+	font-size: 15px;
+}
+.news-body{
+	margin-bottom: -22px ;
+}

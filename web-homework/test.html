@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+		<style type="text/css">
+			#divframe {
+				border: 1px solid #999;
+				width: 500px;
+				margin: 0 auto;
+			}
+			
+			.loadTitle {
+				background: #CCC;
+				height: 30px;
+			}
+			#imgs{
+				width:170px;
+				height: 120px;
+				
+			}
+		</style>
+
+		<script type="text/javascript" src="js/jquery.min.js"></script>
+		<script type="text/javascript" src="js/bootstrap.js"></script>
+		<script type="text/javascript">
+			$(function() {
+				$("#btn").click(function() {
+					$.getJSON("data/data.json", function(data) {
+						var $jsontip = $("#jsonTip");
+						var strHtml = "";
+						//存储数据的变量 
+						$jsontip.empty();
+						//清空内容 
+						$.each(data, function(infoIndex, info) {
+							for(var i = 2; i < info.length; i++) {
+								strHtml += "标题：" + info[i]["title"] + "<br>";
+								strHtml += "内容：" + info[i]["content"] + "<br>";
+								strHtml += "时间：" + info[i]["time"] + "<br>";
+								strHtml += "作者：" + info[i]["author"] + "<br>";
+								strHtml += "图片：" + info[i]["img"] + "<br>";
+								strHtml += "人数：" + info[i]["status"] + "<br>";
+								strHtml += "状态：" + info[i]["status_DISPLAY"] + "<br>";
+								strHtml += "<hr>";
+							}
+
+						});
+						$jsontip.html(strHtml);
+						//显示处理后的数据 
+					});
+				});
+			});
+
+			window.onload = function() {
+				$.getJSON("data/data.json", function(data) {
+					var strBeforeDiv = "<div>"
+					var strAfterDiv = "</div>"
+					var strDiv = "<div class='media'><div class='media-body'>"
+					var $jsontip = $("#ccccc");
+					var strHtml = "";
+					$jsontip.empty();
+					$.each(data, function(infoIndex, info) {
+						for(var i = 2; i < info.length; i++) {
+							strHtml += "<div class='media'>";
+							strHtml += "<div class='media-body'>";
+							strHtml += "<h4>" + info[i]["title"] + "</h4>"
+							strHtml += "<p class='text-left col-md-4'>" + info[i]["time"] + "</p>";
+							strHtml += "<p class='text-left col-md-4'>" + info[i]["status"] + "</p>";
+							strHtml += "</div>"
+							strHtml += "<div class='media-right'>";
+							strHtml += "<a href=''><img id='imgs' src='" + info[i]["img"] + "' /></a>"
+							strHtml += "</div>";
+							strHtml += "</div>";
+						}
+					});
+					$jsontip.html(strHtml);
+				});
+			}
+		</script>
+	</head>
+
+	<body>
+		<div id="divframe">
+			<div class="loadTitle">
+				<input type="button" value="获取数据" id="btn" />
+			</div>
+			<div id="jsonTip"></div>
+		</div>
+		<div class="container text-center" id="case">
+			<div class="row text-center base">
+				<div class="col-md-10">
+					<h2 class="text-left">热门资讯</h2>
+					<hr>
+				</div>
+			</div>
+			<div class="row case text-center">
+					<div class="col-md-8" id="ccccc">
+						
+					</div>
+				</div>
+		</div>
+	</body>
+
+</html>
